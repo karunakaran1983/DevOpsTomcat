@@ -9,5 +9,8 @@
         <module name="DevOpsTomcat" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="DevOpsTomcat" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
