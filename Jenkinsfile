@@ -14,10 +14,17 @@ pipeline {
             }
         }
          stage('Deploy to Staging') {
-                build job: "Karun_DevOps_Deploy_Staging"
+             steps{
+                 build job: "Karun_DevOps_Deploy_Staging"
+             }
             }
          stage('Deploy to Production') {
-                build job: "Karun_DevOps_Deploy_Production"
+             steps{
+                 timeout(time:5, unit:'DAYS'){
+                     input message:'Approve PRODUCTION Deployment?'
+                 }
+                 build job: "Karun_DevOps_Deploy_Production"
+             }
             }
     }
 }
