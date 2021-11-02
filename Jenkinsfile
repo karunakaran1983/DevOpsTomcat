@@ -12,18 +12,12 @@ pipeline {
                     archiveArtifacts artifacts: '**/*.war'
                 }
             }
-        }
-        stage('Deploy to Staging') {
-            steps {
-                echo "Deploying to Staging"
+            stage('Deploy to Staging') {
                 build job: "Karun_DevOps_Deploy_Staging"
             }
-        }
-        stage('Deploy to Production') {
-            steps {
-                echo "Deploying to Production"
+/*            stage('Deploy to Production') {
                 build job: "Karun_DevOps_Deploy_Production"
-            }
+            }*/
         }
     }
 }
