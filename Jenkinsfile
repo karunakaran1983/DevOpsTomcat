@@ -1,8 +1,8 @@
 pipeline {
     agent any
     stages {
-        stage('Build Appln'){
-            steps{
+        stage('Build Appln') {
+            steps {
                 echo "Clean & Package using Maven"
                 sh 'mvn clean package'
             }
@@ -12,12 +12,12 @@ pipeline {
                     archiveArtifacts artifacts: '**/*.war'
                 }
             }
-            stage('Deploy to Staging') {
+        }
+         stage('Deploy to Staging') {
                 build job: "Karun_DevOps_Deploy_Staging"
             }
-            stage('Deploy to Production') {
+         stage('Deploy to Production') {
                 build job: "Karun_DevOps_Deploy_Production"
             }
-        }
     }
 }
